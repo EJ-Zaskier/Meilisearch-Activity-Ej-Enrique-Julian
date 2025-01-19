@@ -1,58 +1,53 @@
-import { MeiliSearch } from 'meilisearch';
 import React, { useState } from 'react';
+import { MeiliSearch } from 'meilisearch';
 
 const client = new MeiliSearch({
-  host: 'http://18.227.13.140:7700',
-  apiKey: 'c716781c75b1115ae1bd945fd73b87d2f12a5f2e878cfc6fbe45f68d57be'
+  host: 'http://18.227.13.140', 
+  apiKey: 'c716781c75b1115ae1bd945fd73b87d2f12a5f2e878cfc6fbe45f68d57be',
 });
 
-
-async function buscarPeliculas(query) {
-  const resultados = await client.index('peliculas').search(query);
-  return resultados;
-}
-
-
-function App() {
-  const [query, setQuery] = useState('');
-  const [resultados, setResultados] = useState([]);
+const App = () => {
+  const [query, setQuery] = useState(''); 
+  const [resultados, setResultados] = useState([]); // Resultados 
+  const [error, setError] = useState(null); //error
 
   const manejarBusqueda = async () => {
-    const response = await client.index('peliculas').search(query);
-    setResultados(response.hits);
+    try {
+      setError(null); 
+      const index = client.index('movies'); 
+      const response = await index.search(query); // búsqueda
+      setResultados(response.hits); // Actualiza
+    } catch (err) {
+      console.error('Error al buscar:', err);
+      setError('No se pudo realizar la búsqueda');
+    }
   };
 
   return (
-    <div>
-      <h1>Buscador de Películas</h1>
+    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+      <h1>Busca aqui tilin</h1>
       <input
         type="text"
-        placeholder="Busca una película..."
+        placeholder="Escribe el título de una película..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        style={{ padding: '10px', width: '300px' }}
       />
-      <button onClick={manejarBusqueda}>Buscar</button>
+      <button onClick={manejarBusqueda} style={{ padding: '10px', marginLeft: '10px' }}>
+        Buscar
+      </button>
 
-      <ul>
-        {resultados.map((pelicula) => (
-          <li key={pelicula.id}>
-            <h2>{pelicula.titulo}</h2>
-            <p>{pelicula.descripcion}</p>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+
+      <ul style={{ marginTop: '20px' }}>
+        {resultados.map((movies) => (
+          <li key={movies.id} style={{ marginBottom: '10px' }}>
+            <strong>{movies.titulo || 'Sin título'}</strong> - {movies.genero || 'Sin género'}
           </li>
         ))}
       </ul>
     </div>
   );
-}
-function Resultado({ pelicula }) {
-  return (
-    <div style={{ border: '1px solid #ccc', margin: '10px', padding: '10px' }}>
-      <h2>{pelicula.titulo}</h2>
-      <p>{pelicula.descripcion}</p>
-    </div>
-  );
-}
-
-
+};
 
 export default App;
