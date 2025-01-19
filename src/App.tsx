@@ -83,11 +83,15 @@ const App = () => {
             <strong style={{ fontSize: '18px', display: 'block', marginBottom: '5px' }}>
               {movie.title || 'Sin título'}
             </strong>
-            <span style={{ color: '#00ff7f' }}>{movie.genre || 'Sin género'}</span>
+            <span style={{ color: '#00ff7f' }}>{movie.genres || 'Sin género'}</span>
           </li>
         ))}
       </ul>
-    </div>
+      {/* por las moscas xd */}
+      <footer style={{ textAlign: 'row', marginTop: '20px', fontSize: '5px', color: '#ccc' }}>
+        Hecho por Enrique Julian Gracia Lopez
+      </footer>
+    </div> 
   );
 };
 
