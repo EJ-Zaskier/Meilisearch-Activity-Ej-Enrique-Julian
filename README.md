@@ -47,4 +47,7 @@ console.log(searchResult);
 Esto buscara en el indice "movies" todos los documentos que contengan la palabra "Arcane".
 
 ## Personalizacion?..
-trabajando en ello 
+En parte de la personalizacion en la interfaz de meilisearch creamos el pryecto en mi caso react 
+en el cual tuve complicaciones de versiones de node, y de typescript, pero en general, pero ya quedo
+se personaliza con el codigo que se encuentra en el archivo "App.tsx", que es el que se encarga de 
+mostrar la interfaz de usuario.
