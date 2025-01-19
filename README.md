@@ -31,19 +31,6 @@ Para crear un indice, podemos hacer lo siguiente:
 const index = await client.index('movies');
 ```
 Esto creara un indice llamado "movies" en nuestra instancia de meilisearch.
-Para agregar un documento, podemos hacer lo siguiente:
-```js
-await index.addDocuments([
-  { id: 1, title: 'Arcane', genre: 'Fantasia' },
-  { id: 2, title: 'La Casa de Papel', genre: 'Drama' },
-]);
-```
-Esto agregara dos documentos a nuestro indice.
-Para hacer una búsqueda, podemos hacer lo siguiente:
-```js
-const searchResult = await index.search('Arcane');
-console.log(searchResult);
-```
 Esto buscara en el indice "movies" todos los documentos que contengan la palabra "Arcane".
 
 ## Personalizacion
@@ -52,3 +39,7 @@ en el cual tuve complicaciones de versiones de node, y de typescript, pero en ge
 se personaliza con el codigo que se encuentra en el archivo "App.tsx", que es el que se encarga de 
 mostrar la interfaz de usuario.
  este proyecto ya deberia mostrarse un buscador de peliculas.
+
+ ahora para el diseño de la interfaz, considere los colores verdes y grises, el gris para evitar el fondo blanco que cansa la vista al igual de tartar de darle un toque mas amigable
+
+ apruebeme profe xd
