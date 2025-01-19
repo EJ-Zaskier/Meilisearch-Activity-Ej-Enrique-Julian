@@ -2,8 +2,8 @@ import { MeiliSearch } from 'meilisearch';
 import React, { useState } from 'react';
 
 const client = new MeiliSearch({
-  host: 'https://18.227.13.140:7700',
-  apiKey: 'tu-c716781c75b1115ae1bd945fd73b87d2f12a5f2e878cfc6fbe45f68d57be'
+  host: 'http://18.227.13.140:7700',
+  apiKey: 'c716781c75b1115ae1bd945fd73b87d2f12a5f2e878cfc6fbe45f68d57be'
 });
 
 
