@@ -25,7 +25,7 @@ const App = () => {
 
   return (
     <div style={{ backgroundColor: '#1e1e1e', color: '#fff', minHeight: '100vh', padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1 style={{ textAlign: 'center', color: '#00ff7f' }}>Buscador de Películas</h1>
+      <h1 style={{ textAlign: 'center', color: '#00ff7f' }}>Busca tu peli favorita 😎</h1>
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
         <input
           type="text"
@@ -76,7 +76,7 @@ const App = () => {
             }}
           >
             <img
-              src={movie.image || 'https://via.placeholder.com/200x300?text=Sin+Imagen'}
+              src={movie.poster || 'https://via.placeholder.com/200x300?text=Sin+Imagen'}
               alt={movie.title || 'Sin título'}
               style={{ width: '100%', height: 'auto', borderRadius: '10px', marginBottom: '10px' }}
             />
