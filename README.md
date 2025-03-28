@@ -6,7 +6,7 @@ La conexión con Meilisearch se realiza utilizando la biblioteca oficial de Java
 ```javascript
  const client = new MeiliSearch({
   host: 'http://18.227.13.140',
-  apiKey: 'c716781c75b1115ae1bd945fd73b87d2f12a5f2e878cfc6fbe45f68d57be',
+  apiKey: 'elapikey xD',
  });
 ```
 Luego, para realizar búsquedas en el índice de películas llamado movies, se utiliza el método search() del cliente. Este método toma como parámetro la consulta ingresada por el usuario y devuelve los resultados coincidentes en el índice especificado. Si no se encuentran coincidencias, el método retorna un arreglo vacío, lo cual se maneja mostrando un mensaje claro al usuario indicando que no hubo resultados. La búsqueda se encapsula en una función asíncrona para manejar correctamente las promesas y los posibles errores.
