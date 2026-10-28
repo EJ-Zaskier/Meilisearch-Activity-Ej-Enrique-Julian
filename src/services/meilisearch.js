@@ -1,9 +1,10 @@
 import { MeiliSearch } from 'meilisearch';
 
-// Configura conexión con el servidor Meili
+// La conexión se configura con variables de entorno (ver .env.example).
+// Usa una "search key" de solo lectura, nunca la master key.
 const client = new MeiliSearch({
-  host: 'http://18.227.13.140',
-  apiKey: 'c716781c75b1115ae1bd945fd73b87d2f12a5f2e878cfc6fbe45f68d57be'
+  host: process.env.REACT_APP_MEILI_HOST || 'http://localhost:7700',
+  apiKey: process.env.REACT_APP_MEILI_SEARCH_KEY,
 });
 
 export default client;

@@ -1,3 +1,17 @@
+# Buscador de películas con Meilisearch
+
+App en React que busca películas en un índice de Meilisearch y muestra los resultados al instante.
+
+*React · Meilisearch*
+
+## Ejecutar
+
+```bash
+cp .env.example .env   # llena el host y la search key de tu servidor Meilisearch
+npm install
+npm start
+```
+
 # Reporte de Desarrollo
 
 ## Lógica detrás de la conexión con Meilisearch
@@ -5,8 +19,8 @@
 La conexión con Meilisearch se realiza utilizando la biblioteca oficial de JavaScript de Meilisearch. Primero, se crea un cliente configurando el host del servidor Meilisearch y proporcionando una clave API para la autenticación. Esto se logra mediante el siguiente código:
 ```javascript
  const client = new MeiliSearch({
-  host: 'http://18.227.13.140',
-  apiKey: 'elapikey xD',
+  host: process.env.REACT_APP_MEILI_HOST,
+  apiKey: process.env.REACT_APP_MEILI_SEARCH_KEY,
  });
 ```
 Luego, para realizar búsquedas en el índice de películas llamado movies, se utiliza el método search() del cliente. Este método toma como parámetro la consulta ingresada por el usuario y devuelve los resultados coincidentes en el índice especificado. Si no se encuentran coincidencias, el método retorna un arreglo vacío, lo cual se maneja mostrando un mensaje claro al usuario indicando que no hubo resultados. La búsqueda se encapsula en una función asíncrona para manejar correctamente las promesas y los posibles errores.
